@@ -1,0 +1,40 @@
+.first{
+	color: blue;
+}
+
+#third{
+	background: red;
+	width: 200px;
+}
+
+*{
+	margin-left: 10px;
+}
+
+p{
+	color: #4B0082;
+}
+
+p~ul{
+	list-style: none;
+}
+
+div p{
+	font-size: 30px;
+}
+
+[title~=selector]{
+	font-family: Arial;
+}
+
+div table{
+	background: yellow;
+}
+
+[lang|=fif]{
+	background: grey;
+}
+
+table+ul{
+	font: sans-serif;
+}
