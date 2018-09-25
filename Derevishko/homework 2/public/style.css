@@ -1,0 +1,59 @@
+/* 1 */
+body {
+  display: flex;
+  flex-direction: column;
+}
+/* 2 */
+.sss {
+  background-color: red;
+  color: magenta;
+  margin-bottom: 100px;
+  width: 200px;
+  padding: 10px;
+  height: 10px;
+}
+
+a {
+  color: green;
+}
+/* 4 */
+a:active {
+  background-color: blue;
+}
+/* 5 */
+div > img {
+  width: inherit;
+  height: inherit;
+  justify-content: center;
+  opacity: 0.2;
+}
+
+div {
+  width: 100px;
+  height: 100px;
+  background-color: black
+}
+/* 7 */
+#canvas {
+  background-color: #AAAAAA;
+}
+/* 8 */
+[type=button] {
+  font-size: 20px;
+}
+/* 9 */
+.h1 span {
+  font-family: sans-serif;
+}
+/* 10 */
+ul li:first-child {
+  background-color: #AFA;
+}
+/* 3 */
+div + span {
+  color: magenta;
+}
+/* 6 */
+ul ~ ol {
+  background-color: #aaa;
+}
