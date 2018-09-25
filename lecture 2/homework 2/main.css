@@ -1,0 +1,47 @@
+html, body, h1, span, p {
+    padding: 0;
+    margin: 0;
+}
+
+.wrapper {
+    font-size: 1.5rem;
+}
+
+.wrapper div {
+    margin: 0.5rem;
+}
+
+.wrapper > div {
+    border: 0.01rem solid black;
+    color: red;
+}
+
+.wrapper div:first-child {
+    color: black;
+}
+
+.wrapper div:nth-child(even) {
+    color: yellow;
+}
+
+.wrapper div:not(.wrapper__section) {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.wrapper .wrapper__section {
+    display: flex;
+    flex-direction: column;
+    background-color: bisque;
+}   
+
+.wrapper__section ~ div {
+    padding: 0.5rem;
+}
+
+.wrapper__section + div {
+    padding: 1rem;
+}
+
+#wrapper__p-box {
+    padding: 5rem;
+}
