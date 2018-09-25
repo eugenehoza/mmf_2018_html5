@@ -1,0 +1,60 @@
+/*1*/
+*
+	{
+	font-family:Comic Sans MS, Comic Sans, cursive;
+	margin:20px;
+	}
+/*2*/
+body
+	{
+	background-color:lightgrey;
+	}
+/*3*/
+.div
+	{
+	color:Red;
+	}
+/*4*/
+.clk:hover
+	{
+	color:red;
+	font-size:20px;
+	}
+/*5*/
+div[class]
+	{
+	border:5px solid black;
+	}
+/*6*/
+#link
+	{
+	color:purple;
+	border:3px dotted black;
+	}
+/*7*/
+a:not(#link)
+	{
+	color:#blue;
+	}
+/*8*/
+div ul
+	{
+	font-size:20px;
+	}
+li ul
+	{
+	color:#9F1010;	
+	}
+/*9*/
+[href]
+	{
+	font-style:italic;
+	}
+/*10*/
+p::first-letter
+	{
+    font-family:"Times new roman";
+    font-size: 30px;
+    font-weight: 50%;
+    padding-right:5px;
+	}
