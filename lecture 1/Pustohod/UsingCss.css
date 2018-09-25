@@ -1,0 +1,64 @@
+body{
+	background: #F0FFA9;
+	}
+
+p.oddo first{
+	font-family: Arial, sans-serif;
+	color: blue;
+}
+
+p.odd {
+	font-family: Arial, sans-serif;
+	color: red;
+}	
+	
+#thisUnic{
+	font-family: Courier;
+	color: #00AAAA;
+}
+	
+div table{
+color: #FF0002;
+background: #00FFC0;
+}
+
+ul li {
+	list-style: none
+}
+
+.big{
+	font-size: 27px;
+}	
+
+.ncca first {
+	font-size: 10px;
+}
+
+.ncca second {
+	font-size: 19px;
+	color: 050907;
+}
+
+div p{
+	font-family: Arial, serif;
+}
+
+div p.oddo{
+	font-size: 30px;
+}
+
+br + ol {
+	background: green; color: white;
+}
+
+p[class~="first"] {
+	background: #A0A050;
+}
+
+div:hover {
+	background: #05F000;
+}	
+
+p:active {
+	font-size: 40px;
+}
