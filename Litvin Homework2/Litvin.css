@@ -1,0 +1,43 @@
+.header{
+  background-color: #FAF0E6;
+  text-align: center;
+}
+
+body{
+  font-family: Georgia;
+  background-image: url('http://www.stroyboard.su/foto/good_fotos/56/562697/dekorativnie_shtukaturki_foto_largest.jpg')
+}
+
+#about-me{
+  font-size: 20px;
+  opacity: 0.6;
+}
+
+h2, h1{
+  color:#800000;
+}
+
+ul li{
+  font-style: Italic;
+}
+
+div p{
+  font-weight: bold;
+}
+
+* { margin: 5; 
+  padding: 7; 
+}
+
+#title * {
+  font-weight: bold;
+}
+
+a:link { 
+  color: red;
+}
+
+ul + p { 
+  color: DarkBlue; 
+}
+
