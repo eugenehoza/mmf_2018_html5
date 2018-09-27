@@ -1,0 +1,19 @@
+.Fon{
+	width: 128px;
+	height: 43px;
+	background: #ce2028;
+	font-family: Arial, sans-serif;
+	margin-top: 20px;
+	margin-left: 20px;
+	display: flex;
+}
+.Znachok{
+	width: 21px;
+	height: 17px;
+	padding: 14px 0px 0px 9px;
+}
+.Fraza{
+	margin-top: 12px;
+	margin-left: 9px;
+	color: white;
+}
