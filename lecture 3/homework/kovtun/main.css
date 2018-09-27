@@ -1,0 +1,56 @@
+html, body, h1, div, p {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 10px;
+}
+
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+}
+
+.wrapper__tab {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 0.15rem solid grey;
+    border-right: 0.15rem solid grey;
+}
+
+.wrapper__orange-box {
+    width: 100%;
+    height: 0.2rem;  
+    background-color: coral;
+}
+
+.wrapper__content-box {
+    display: flex; 
+    flex-direction: row;
+}
+
+.wrapper__file-name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.wrapper__floppy-box {
+    background: url(./imgs/floppy.png) no-repeat center;
+    width: 2rem;
+    height: 2rem;
+}
+
+.wrapper__closed-box {
+    background: url(./imgs/close.png) no-repeat center;
+    width: 20px;
+    height: 20px;
+}
