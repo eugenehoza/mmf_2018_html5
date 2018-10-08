@@ -1,0 +1,33 @@
+.layer{
+    background-color: #F0F0F0;
+    width: 386px;
+    height: 54px;
+    font-size: 12px;
+    font-family: "Arial", sans-serif;
+    padding: 5px 5px 0px;
+}
+
+.layer1 {
+    float: left;
+}
+
+.layer2 {
+    margin: -1px 10px 0px;
+    padding: 8px 7px 9px;
+    float: left;
+    border: 1px solid #ABADB3;
+    width: 184px;
+    height: 31px;
+}
+
+.layer3 {
+    padding: 5px 11px 0px;
+}
+
+.layer4{
+    margin: -2px;
+}
+
+.layer3, .layer4{
+    color: blue;
+}
