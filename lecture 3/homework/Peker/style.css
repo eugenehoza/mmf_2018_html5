@@ -1,0 +1,27 @@
+*{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 95%;
+}
+
+.div{
+background-color: #F9F9F7;
+display: flex;
+justify-content:space-between;
+align-items: center;
+}
+
+.text{
+display: flex;
+align-items: center;
+}
+
+.counter{
+background-color: #E8E8E0;
+padding: 2px 20px 2px 20px;
+margin: 0px 5px 0px 5px;
+}
+
+.blue{
+color: #388DBA;
+}
+
