@@ -1,0 +1,62 @@
+*
+	{
+	font-family:Comic Sans MS, Comic Sans, cursive;
+	margin:10px;
+	}
+
+body
+	{
+	background-color:lightgrey;
+	}
+
+.div
+	{
+	text-align:center;
+	color:#3F3F3F;
+	}
+
+.div:hover
+	{
+	color:red;
+	font-size:20px;
+	}
+
+div[class]
+	{
+	border:10px solid black;
+	}
+
+a:not(#link)
+	{
+	color:#D0FF00;
+	background-color:grey;
+	border:1px solid blue;
+	}
+
+[href]
+	{
+	font-style:italic;
+	}
+	
+div ul
+	{
+	font-size:20px;
+	}
+li ul
+	{
+	color:#9F1010;	
+	}
+
+p::first-letter
+	{
+    font-family:"Times new roman";
+    font-size: 30px;
+    font-weight: 50%;
+    padding-right:5px;
+	}
+	
+#link
+	{
+	color:purple;
+	border:1px dotted black;
+	}
