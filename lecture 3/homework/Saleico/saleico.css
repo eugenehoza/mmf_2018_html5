@@ -1,0 +1,40 @@
+table{
+     text-align: center;
+     background-image: url(pics/grass.jpg) ;
+}
+td{
+    color: white;
+    font-size: 20;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif; 
+}
+.shirt{
+    margin-top:30;
+    height:300;
+    width:300;
+}
+.c{
+ margin-bottom:250;
+ margin-left:30;
+ height:30;
+ width:30;
+}
+.i{
+
+    display: inline; 
+    background: black; /* Цвет фона */
+    padding-left: 15px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 15px;
+    border-radius: 8px;
+}
+.num{
+    color:black;
+     display: inline; 
+     background: white; /* Цвет фона */
+    padding-left: 15px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 15px;
+    border-radius: 8px;
+}
