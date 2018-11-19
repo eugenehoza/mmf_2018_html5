@@ -14,7 +14,8 @@ let andrey = new Vue({
   data: {
     list: [],
     text: '',
-    current: ''
+    current: '',
+    last: ''
   },
   components: {
     elem
@@ -27,7 +28,9 @@ let andrey = new Vue({
         xhr.open('GET', `/andrey/${e.target.parentNode.children[0].innerText}`);
         xhr.addEventListener('load', () => {
           data.text = xhr.responseText;
-          data.current = e.target.parentNode.children[0].innerText
+          data.current = e.target.parentNode.children[0].innerText;
+          data.last = data.current;
+          data.saveLast()
         });
         xhr.send()
       }
@@ -45,6 +48,27 @@ let andrey = new Vue({
       });
       let req = {text: this.text}
       xhr.send(JSON.stringify(req))
+    },
+    saveLast() {
+      let data = this;
+      let xhr = new XMLHttpRequest();
+      xhr.open('POST', `/dima/last`);
+      xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+      xhr.addEventListener('load', () => {
+        data.updateLast()
+      });
+      xhr.send(JSON.stringify({last: data.last}))
+    },
+    updateLast() {
+      let data = this;
+      let xhr = new XMLHttpRequest();
+      xhr.open('GET', `/dima/last`);
+      xhr.addEventListener('load', () => {
+        if(xhr.responseText ) {
+          data.last = xhr.responseText
+        }
+      });
+      xhr.send()
     }
   },
     created() {
@@ -52,8 +76,9 @@ let andrey = new Vue({
       let xhr = new XMLHttpRequest();
       xhr.open('GET', '/andrey');
       xhr.addEventListener('load', () => {
-        data.list = JSON.parse(xhr.responseText)
+        data.list = JSON.parse(xhr.responseText);
+        this.updateLast()
       });
-      xhr.send()
+      xhr.send();
     }
 })

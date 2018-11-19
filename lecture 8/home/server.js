@@ -8,8 +8,11 @@ const bodyParser = require("body-parser");
 app.use('/static',express.static('static'));
 app.use(bodyParser.json());
 
-const andrey = require('./routes/andrey.js')
-app.use('/andrey',andrey)
+const andrey = require('./routes/andrey.js');
+app.use('/andrey',andrey);
+
+const dima = require('./routes/dima.js');
+app.use('/dima',dima);
 
 app.get('/', (req,res)=>{
   res.send(fs.readFileSync('./index.html', 'utf8'))
