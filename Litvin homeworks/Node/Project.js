@@ -1,4 +1,4 @@
-let path = require('path');
-for (let c in path) {
-  console.log(`${c};`)
+let path = process.env.PATH.split(';')
+for (let c of path) {
+  console.log(c)
 }

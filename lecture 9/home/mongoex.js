@@ -5,18 +5,18 @@ const mongo = require("mongodb").MongoClient;
 
 const url = "mongodb://localhost:27017/test";
 
-app.get('/', (req, res) => { 
+app.get('/', (req, res) => {
   res.send(fs.readFileSync('index.html', 'utf8'))
 });
 
-app.get('/test', (req, res) => { 
+app.get('/test', (req, res) => {
   mongo.connect(url, (err, db) => {
     res.send(err || "ok");
     db.close();
   });
 });
 
-app.get('/create', (req, res) => { 
+app.get('/create', (req, res) => {
   mongo.connect(url, (err, db) => {
     const dbo = db.db("test")
     dbo.createCollection("cars", function(err, r) {
@@ -26,11 +26,11 @@ app.get('/create', (req, res) => {
   });
 });
 
-app.get('/insert', (req, res) => { 
+app.get('/insert', (req, res) => {
   mongo.connect(url, (err, db) => {
     const dbo = db.db("test")
     const obj = {
-      "name": "car " + Math.floor(Math.random()*100), 
+      "name": "car " + Math.floor(Math.random()*100),
       "vin": Math.floor(Math.random()*10000000)
     }
     dbo.collection("cars").insertOne(obj, function(err, r) {
@@ -40,7 +40,7 @@ app.get('/insert', (req, res) => {
   });
 });
 
-app.get('/list', (req, res) => { 
+app.get('/list', (req, res) => {
   mongo.connect(url, (err, db) => {
     const dbo = db.db("test")
     dbo.collection("cars").find({}).toArray(function(err, r) {
@@ -49,5 +49,29 @@ app.get('/list', (req, res) => {
     });
   });
 });
+
+app.get('/derevishko/:name', (req,res) => {
+  console.log(req.params.name)
+  mongo.connect(url, (err, db) => {
+    const dbo = db.db("test")
+    dbo.collection("cars").find({}).toArray(function(err, result) {
+      let data = [];
+      let flag = true;
+      result = result.sort((a,b)=>a.name.split(' ')[1]>b.name.split(' ')[1])
+      result.forEach((e,n)=>{
+        if (e.name.split(' ')[1] >= req.params.name && flag && n>=1) {
+          data[0] = result[n-1];
+          data[1] = result[n];
+          flag= false;
+        }
+      })
+      if(data[0] === undefined) {
+        data[0] = result[length-1]
+      }
+      res.send(data)
+      db.close();
+    });
+  });
+})
 
 app.listen(3000, () => console.log('listen 3000'))
