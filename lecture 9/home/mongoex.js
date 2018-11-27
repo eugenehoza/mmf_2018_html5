@@ -4,6 +4,8 @@ const app = express();
 const mongo = require("mongodb").MongoClient;
 
 const url = "mongodb://localhost:27017/test";
+app.use("/static", express.static("static"))
+
 
 app.get('/', (req, res) => {
   res.send(fs.readFileSync('index.html', 'utf8'))
@@ -68,6 +70,24 @@ app.get('/derevishko/:name', (req,res) => {
       if(data[0] === undefined) {
         data[0] = result[length-1]
       }
+      res.send(data)
+      db.close();
+    });
+  });
+})
+
+app.get("/dublicate", function(req, res){
+  mongo.connect(url, (err, db) => {
+    const dbo = db.db("test")
+    dbo.collection("cars").find({}).toArray(function(err, r) {
+      let data = {}
+      r.forEach(function(e) {
+        if (!data[e.name]) {
+          data[e.name]=0
+        }
+        data[e.name]++
+
+      })
       res.send(data)
       db.close();
     });
