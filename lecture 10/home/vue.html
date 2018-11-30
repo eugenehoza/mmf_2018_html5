@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>View examples</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+
+    <div id="ex1">
+        ~~output
+        {{ message }}
+        <br/>
+        ~~edit
+        <input type="text" v-model="message"/>
+        <br/>
+        ~~for
+        <ol>
+            <li v-for="item in items">
+                {{item.message}}
+                {{item.count}}
+                <button v-if="item.add" v-on:click="item.count++; alrt();">Add</button>
+                <button v-if="item.remove" v-on:click="item.count--; prom();">Remove</button>
+            </li>
+        </ol>
+
+    </div>
+
+    <script src="app.js"></script>    
+</body>
+</html>
