@@ -52,12 +52,11 @@ app.get('/list', (req, res) => {
   });
 });
 
-app.get('/kovtyn/copy', (req, res) => {
-  mongo.connect(url, (err, db) => {
+app.get('/kovtun/copy', (req, res) => {
+  mongo.connect(url, (error, db) => {
     const dbo = db.db("test")
     dbo.collection("cars").find({}).toArray(function(err, r) {
       dbo.collection("cars").insert({r})
-
       res.send('ok');
       db.close();
     });
