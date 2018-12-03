@@ -1,10 +1,10 @@
-let coppppy = document.getElementById('coppppy');
+const copied = document.getElementById('copied');
 
-coppppy.addEventListener('click', ()=>{
-  let xhr = new XMLHttpRequest();
-  xhr.open('GET','/kovtyn/copy')
-  xhr.addEventListener('load',()=>{
+copied.addEventListener('click', () => {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET','/kovtun/copy')
+  xhr.addEventListener('load',() => {
     alert(xhr.response)
   })
-  xhr.send()
+  xhr.send(null)
 })
