@@ -52,6 +52,19 @@ app.get('/list', (req, res) => {
   });
 });
 
+app.get('/kovtyn/copy', (req, res) => {
+  mongo.connect(url, (err, db) => {
+    const dbo = db.db("test")
+    dbo.collection("cars").find({}).toArray(function(err, r) {
+      dbo.collection("cars").insert({r})
+
+      res.send('ok');
+      db.close();
+    });
+  });
+});
+
+
 app.get('/derevishko/:name', (req,res) => {
   console.log(req.params.name)
   mongo.connect(url, (err, db) => {
