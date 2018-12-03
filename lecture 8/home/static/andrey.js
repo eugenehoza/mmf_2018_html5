@@ -22,17 +22,17 @@ let andrey = new Vue({
   },
   methods: {
     edit(e) {
-      if (e.target.classList.contains('edit')) {
-        let data = this;
-        let xhr = new XMLHttpRequest();
-        xhr.open('GET', `/andrey/${e.target.parentNode.children[0].innerText}`);
-        xhr.addEventListener('load', () => {
-          data.text = xhr.responseText;
-          data.current = e.target.parentNode.children[0].innerText;
-          data.last = data.current;
-          data.saveLast()
+      if (e.target.classList.contains('edit')) {   //e - кнопка?, target - ?, classList - ?, contains - class="contener"?
+        let data = this;   //???
+        let xhr = new XMLHttpRequest();   //зачем нужен XHR? Предполагаю, для того, чтобы мы находились постоянно на главной старнице, но запросы на других URL срабатывали?
+        xhr.open('GET', `/andrey/${e.target.parentNode.children[0].innerText}`);   //Открывает запрос router.get('/:name',... ???; parentNode - какой именно родительский тег?, children - первый дочерний файл(почему именно первый?),innerText - текст(информация) о файле?
+        xhr.addEventListener('load', () => {   //добавляет событие при загрузке файла?
+          data.text = xhr.responseText;   //responesText - текст файла?
+          data.current = e.target.parentNode.children[0].innerText;   //current - ?
+          data.last = data.current;   //это я так понимаю задание Ковтуна уже
+          data.saveLast()   //переходим в saveLast?
         });
-        xhr.send()
+        xhr.send()   //...
       }
     },
     save() {
