@@ -1,4 +1,4 @@
-let elem = {
+const elem = {
   template: `<li class='file'>
   <div class='name'>{{name}}</div>
   <div class='info'>i</div>
