@@ -1,8 +1,8 @@
 const elem = {
   template: `<li class='file'>
   <div class='name'>{{name}}</div>
-  <div class='info' data-info='info'>i</div>
-  <div class='edit' data-edit='edit'>e</div>
+  <div class='info'>i</div>
+  <div class='edit'>e</div>
   <div class='copy'>c</div>
   <div class='remove'>r</div>
   </li>`,
