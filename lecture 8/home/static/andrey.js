@@ -1,8 +1,8 @@
-let elem = {
+const elem = {
   template: `<li class='file'>
   <div class='name'>{{name}}</div>
-  <div class='info'>i</div>
-  <div class='edit'>e</div>
+  <div class='info' data-info='info'>i</div>
+  <div class='edit' data-edit='edit'>e</div>
   <div class='copy'>c</div>
   <div class='remove'>r</div>
   </li>`,
@@ -21,33 +21,31 @@ let andrey = new Vue({
     elem
   },
   methods: {
-    edit(e) {
-      if (e.target.classList.contains('edit')) {   //e - кнопка?, target - ?, classList - ?, contains - class="contener"?
-      // e - само событие, это объект можно вывести в консоль посмотреть что там есть
-      // e.target - тэг вызывающий событие
-      // classList - свойстро дом объектов для работы с классами
-      // contains вернёт true если тэг содержит этот класс
-        let data = this;   //??? указание на облость видимости
-
-        let xhr = new XMLHttpRequest();   //зачем нужен XHR? Предполагаю, для того, чтобы мы находились постоянно на главной старнице, но запросы на других URL срабатывали?
-        // объкт для AJAX, по суті да
-        xhr.open('GET', `/andrey/${e.target.parentNode.children[0].innerText}`);   //Открывает запрос router.get('/:name',... ???; parentNode - какой именно родительский тег?, children - первый дочерний файл(почему именно первый?),innerText - текст(информация) о файле?
-        // отправляет запрос по Aдресу /andrey/:name а роутер перехватывает всё что начинается с /andrey
-        // относительно e.target
-        // смотрі html на работающей странице и поймёшь откуда берётся имя файла
-        // innerText свойство которое возращает текст находящийся в тэге, можно перезаписать
-        xhr.addEventListener('load', () => {   //добавляет событие при загрузке файла?
-          // когда придёт ответ от сервера оно сработает
-          data.text = xhr.responseText;   //responesText - текст файла?
-          // выведи xrh посмотри что в нем есть, responesText - текст который передали в ответ
-          data.current = e.target.parentNode.children[0].innerText;   //current - ?
-          // название текущего файла
-          data.last = data.current;   //это я так понимаю задание Ковтуна уже
-          // частично
-          data.saveLast()   //переходим в saveLast?
-          // вызывается эта функция, а так да
+    selectCurrentMethod(e)
+    { //info(e)
+      if (e.target.classList.contains('info')) {
+        let data = this;
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', `/vladaf/${e.target.parentNode.children[0].innerText}`);
+        xhr.addEventListener('load', () => {
+          data.text = xhr.responseText;
         });
-        xhr.send()   //... отправка запроса
+        xhr.send()
+        console.log('Нажато i');
+      }
+      //edit(e)
+      else if (e.target.classList.contains('edit')) {
+        let data = this;
+
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', `/andrey/${e.target.parentNode.children[0].innerText}`);
+        xhr.addEventListener('load', () => {
+          data.text = xhr.responseText;
+          data.current = e.target.parentNode.children[0].innerText;
+          data.last = data.current;
+          data.saveLast()
+        });
+        xhr.send()
       }
     },
     save() {

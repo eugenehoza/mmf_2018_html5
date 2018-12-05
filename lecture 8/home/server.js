@@ -14,6 +14,9 @@ app.use('/andrey',andrey);
 const dima = require('./routes/dima.js');
 app.use('/dima',dima);
 
+const vladaf = require('./routes/vladaf.js');
+app.use('/vladaf',vladaf);
+
 app.get('/', (req,res)=>{
   res.send(fs.readFileSync('./index.html', 'utf8'))
 });

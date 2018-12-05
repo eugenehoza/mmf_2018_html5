@@ -15,12 +15,11 @@ router.get('/', (req,res) => {
 })
 
 router.get('/:name', (req,res) => {
-  fs.readFile(__dirname + `/../data/${req.params.name}`, 'utf8', (err, result) => {   //name будет как имя файла или любое?
+  fs.readFile(__dirname + `/../data/${req.params.name}`, 'utf8', (err, result) => {
     if (err) {
       res.sendStatus(400)
     }
-    res.send(result)   //что за результат передается и куда(обратно в edit(e)?)?
-    // result передаётся как текст в xhr который его вызывает, здесь это xhr с гет запросом по адресу '/andrey/:name'
+    res.send(result)
 
   })
 })

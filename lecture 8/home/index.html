@@ -14,13 +14,12 @@
         <h3>{{last}}</h3>
       </div>
       <div class="contener">
-        <div class="contener__list-block" @click='edit' >
+        <div class="contener__list-block" @click='selectCurrentMethod'>
           <ul><elem v-for='e in list' :name='e'></elem></ul>
         </div>
         <div class="contener__redact">
           <textarea name="name" rows="8" cols="80" v-model="text"></textarea>
-          <button type="button" v-if='current' @click='save'>Сохранить</button>   <!-- v-if - что оно здесь делает? -->
-          <!-- если  current приводится к true то показывать кнопку, в этом случае если current не пустая строка-->
+          <button type="button" v-if='current' @click='save'>Сохранить</button>
         </div>
       </div>
     </div>
