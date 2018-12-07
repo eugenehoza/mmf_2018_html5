@@ -106,4 +106,15 @@ app.get("/dublicate", function(req, res){
   });
 })
 
+app.get("/vladaf/deleteAll", function(req, res){
+  mongo.connect(url, (err, db) => {
+    const dbo = db.db("test")
+    dbo.collection("cars").find({}).toArray(function(err, r) {
+      dbo.collection("cars").drop({r});
+      res.send('Collection was removed');
+      db.close();
+    });
+  });
+})
+
 app.listen(3000, () => console.log('listen 3000'))
