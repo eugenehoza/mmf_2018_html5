@@ -24,14 +24,14 @@ app.post('/registration', (req,res) => {
 
 app.get('/login', (req,res) => {
   if (req.body) {
-    res.send(JOSN.stringify({_id: 12312312321}));
+    res.send(JSON.stringify({_id: 12312312321}));
   } else {
     res.send('error');
   }
 })
 
 app.get('/start', (req,res) => {
-  res.send(JOSN.stringify({token: 'safasdgdhbfddfghjkoijuhgfdfgh'}));
+  res.send(JSON.stringify({token: 'safasdgdhbfddfghjkoijuhgfdfgh'}));
 })
 
 app.post('/finish', (req,res) => {
@@ -44,12 +44,12 @@ app.post('/finish', (req,res) => {
 
 app.get('/records', (req,res) => {
   let arr = new Array(100).fill({login:'fdsads',time:123213})
-  res.send(JOSN.stringify(arr));
+  res.send(JSON.stringify(arr));
 })
 
 app.get('/records/:id', (req,res) => {
   let arr = new Array(100).fill({login:req.params.id,time:123213})
-  res.send(JOSN.stringify(arr));
+  res.send(JSON.stringify(arr));
 })
 
 
