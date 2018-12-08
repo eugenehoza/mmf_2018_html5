@@ -1,26 +1,26 @@
-post
+post //готово
 /registration
 {login:'',password:''}
 'ok' / 'error'
 
-post
+post //готово
 /login
 {login:'',password:''}
-{_id: 12312312321}
+{_id: 12312312321} || 'error'
 
-get 
+get //готово
 /start
-{token: 'safasdgdhbfddfghjkoijuhgfdfgh'}
+{"token":"16de89c9f1b8024a9b11df311ef823cd7a7d839c4263065101420416649c00bd","_id":"5c0ba8ad7ac6b124c0ed136e"}
 
-post
+post //готово
 /finish
-{time:1544191797278,_id:123213123,token: 'safasdgdhbfddfghjkoijuhgfdfgh'}
+{time:1544191797278,match_id:"5c0ba8ad7ac6b124c0ed136e",token: '16de89c9f1b8024a9b11df311ef823cd7a7d839c4263065101420416649c00bd',user_id:'5c0ba86a7ac6b124c0ed136d'}
 'ok' / 'error'
 
-get 
+get
 /records
 [{login:fdsads,time:123213},{},{},....] //LENGTH <= 100
 
-get 
-/records/id
-[{login:fdsads,time:123213},{},{},....] //LENGTH <= 100
+get
+/records/:login
+[{time:123213},{},{},....] //LENGTH <= 100
