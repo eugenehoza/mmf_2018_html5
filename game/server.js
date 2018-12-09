@@ -12,10 +12,27 @@ const ObjectID = require('mongodb').ObjectID;
 
 app.use(bodyParser.json());
 app.use("/static", express.static("static"))
-
 app.get('/',(req,res) => {
     res.send(fs.readFileSync('index.html','utf8'))
 });
+
+const allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With, Accept');
+
+    // intercept OPTIONS method
+    if ('OPTIONS' == req.method) {
+        res.send(200);
+    } else {
+        next();
+    }
+};
+app.use(allowCrossDomain);
+
+app.get('*', (req,res,next) => {
+	next()
+})
 
 // ------------ гтово
 app.post('/registration', (req,res) => {
