@@ -11,7 +11,13 @@ const url = "mongodb://localhost:27017/test";
 const ObjectID = require('mongodb').ObjectID;
 
 app.use(bodyParser.json());
-app.use("/static", express.static("static"))
+app.use("/images", express.static("images"))
+app.use("/components", express.static("components"))
+app.use("/scripts", express.static("scripts"))
+app.use("/styles", express.static("styles"))
+app.use("/node_modules", express.static("node_modules"))
+
+
 app.get('/',(req,res) => {
     res.send(fs.readFileSync('index.html','utf8'))
 });

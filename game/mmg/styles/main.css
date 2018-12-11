@@ -41,7 +41,7 @@ body {
 
 .registration-form {
     width: 20%;
-    margin: 200px auto;
+    margin: 10vh auto;
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
