@@ -4,14 +4,14 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>SNC|(SocialNewsClub)-registration</title>
-		<link href="./styles/signup_style.css" rel="stylesheet" type="text/css"/>
+		<link rel="stylesheet" href="./styles/signup_style.css" type="text/css">
 	</head>
-	
+
 	<body>
-		
+
 		<div class="signup_name">
 			<span class="snc">SNC</span>&nbsp &nbsp &nbsp<span class="chertochka">|</span>&nbsp &nbsp &nbsp<span class="social">(SocialNewsClub)</span>
-		
+
 		</div>
 
 		<div class="s_center">
@@ -19,16 +19,21 @@
 			<div class="sign_up">
 			<span>SIGN UP</span>
 			</div>
-			<div class="signup_nick">
-			<input>
-			</div>
-			<div class="signup_pass">
-			<input>
-			</div>
-			<div class="signup_end">
-			<button>SIGN UP</button> <a href="link_to_log_in">go back<a>
-			</div>
-		</div>	
-		</div>			
-	
+			<form method="post" action="/">
+				<div class="signup_nick">
+				<input placeholder="Nickname" name="nickname">
+				</div>
+				<div class="signup_pass">
+				<input placeholder="Password" name="password">
+				</div>
+				<div class="signup_end">
+				<button>SIGN UP</button>
+				</div>
+			</form>
+			<a href="link_to_log_in">LOG IN<a>
+		</div>
+		</div>
+
 	</body>
+
+</html>
