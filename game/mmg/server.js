@@ -42,11 +42,11 @@ app.get('*', (req,res,next) => {
 
 // ------------ гтово
 app.post('/registration', (req,res) => {
-  if (isValidityUser(req.body)) {
+ // if (isValidityUser(req.body)) {
     findAndInsertByLogin(req.body, res)
-  } else {
-    res.send('error');
-  }
+ // } else {
+   // res.send('error');
+ // }
 });
 
 //готово
@@ -70,7 +70,7 @@ app.get('/records', (req,res) => {
           }
           return e
         })
-        res.send(result.slice(0,100));
+        res.send(result.slice(0,10));
         db.close();
       });
 
@@ -84,7 +84,7 @@ app.get('/records/:login', (req,res) => {
     dbo.collection('users').findOne({login: req.params.login}, (err,r) => {
       dbo.collection("finished_matches").find({}).toArray(function(err, result) {
         result = result.filter( (e) => ''+e.user_id === ''+r._id).sort( (a,b) => a.time > b.time).map(e => ({time:e.time}))
-        res.send(result.slice(0,100));
+        res.send(result.slice(0,10));
         db.close();
       });
     })
