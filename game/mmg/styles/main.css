@@ -16,6 +16,19 @@ body {
     display: block;
 }
 
+.registration-greeting button {
+    width: 100px;
+    height: 20px;
+    margin: 0 auto;
+    background-color: #8f8f8f;
+    font-family: Arial, sans-serif;
+    border: none;
+    text-align: center;
+    color: #473f2e;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
 .registration-greeting {
     display: flex;
     flex-direction: column;
@@ -68,6 +81,7 @@ body {
 
 .menu {
     width: 95%;
+    min-width: 900px;
     height: 870px;
     margin: 3% auto;
     background: #99b5ff;
@@ -196,7 +210,6 @@ body {
 }
 
 .menu-table {
-    margin-left: 600px;
     width: 600px;
     border-collapse: collapse;
 }
@@ -265,6 +278,10 @@ body {
     font-size: 40px;
     color: red;
     margin: auto auto;
+}
+
+.hidden {
+    display: none;
 }
 
 .hide {

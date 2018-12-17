@@ -6,10 +6,8 @@
 </head>
 <body>
     <div id='wrapper'>
-
         <registration v-if='registration'></registration>
         <login v-else></login>
-
         <div class="menu" id="menu">
             <section class="menu-bar" id="menu-bar">
                 <div class="dropdown" id="dropdown">
@@ -48,18 +46,27 @@
                 </div>
             </section>
             <section class="menu-highscore" id="menu-highscore">
-                <h2>TOP-10 players:</h2>
+                <h2>TOP-10 results:</h2>
                 <table class="menu-table" id="highscore-table">
                     <thead>
                         <tr>
                             <th scope="col">Number</th>
-                            <th scope="col">First_Name</th>
-                            <th scope="col">Last_Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Record(time)</th>
+                            <th scope="col">Record time</th>
                         </tr>
                     </thead>
                     <tbody id="highscore-table-body"></tbody>
+                </table>
+            </section>
+            <section class="menu-highscore" id="menu-full-highscore">
+                <h2>TOP-10 results of this game:</h2>
+                <table class="menu-table" id="highscore-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Number</th>
+                            <th scope="col">Record time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="menu-full-highscore-body"></tbody>
                 </table>
             </section>
         </div>

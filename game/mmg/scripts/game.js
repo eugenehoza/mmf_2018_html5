@@ -1,8 +1,10 @@
 const coversCount = 3;
-const difficulties = [{name: 'Low(5x2)', count: 10}, {name: 'Medium(6x3)', count: 18}, {name: 'Hard(8x3)', count: 24}];
+const difficulties = [{name: 'Low(5x2)', count: 10}];
 const difficultiesCount = difficulties.length;
 let token;
 let user_id;
+let current_math_id;
+let current_results = [];
 
 Vue.component('login', {
     data: function () {
@@ -119,10 +121,9 @@ function applicationStart() {
                 let menu = new Menu(user);
                 menu.addCovers();
                 menu.addDifficulties();
-                menu.showMenu();
+                menu.showMenu(firstName);
                 
             })
-            .catch(error => alert('warning'))
         }
         return false;
     });
@@ -136,25 +137,14 @@ class Menu {
         this.difficulty = difficulties[0];
         this.coversList = document.getElementById('menu-bar-images');
         this.difficultiesList = document.getElementById('menu-bar-difficulty');
-        this.results = document.getElementById('result-box');
+        this.resultsBtn = document.getElementById('result-box');
     }
 
-    // showResults() {
-    //     this.results.addEventListener('click', e => {
-    //         fetch('http://localhost:3000/records')
-    //         .then(res => res.json())
-    //         .then(records => {
-               
-    //         })
-    //         .catch(error => console.log(error))
-    //     });
-    // }
-
-    showMenu() {
+    showMenu(login) {
         let registration = document.getElementById('registration');
         registration.style.display = 'none';
         this.menu.style.display = "flex";
-        this.addHighScoreTable();//
+        
         let logout = document.getElementById('logout-btn');
         let newGame = document.getElementById('new-game-btn');
         newGame.addEventListener('click', e => {
@@ -175,40 +165,50 @@ class Menu {
         logout.addEventListener('click', e => {
             location.reload();
         });
+
+        this.resultsBtn.addEventListener('click', () => {
+            fetch(`http://localhost:3000/records`)
+            .then(res => res.json())
+            .then(results => this.addFullHighScoreTable(results))
+            .catch(error => console.log(error))
+        });
+
+        fetch(`http://localhost:3000/records/${login}`)
+        .then(res => res.json())
+        .then(results => {
+            current_results = results;
+            this.addHighScoreTable();
+        })
+        .catch(error => console.log(error))
     }
     
-    addHighScoreTable() {
-        let highScoreTableBody = document.getElementById('highscore-table-body');
-        // let results;
-        
-        // fetch('http://localhost:3000/records')
-        // .then(res => res.json())
-        // .then(records => {
-        //     results = records;
-        //     console.log(results);
-        // })
-        // .catch(error => console.log(error))
-    
-
-        let highScoreTable = new Highscore(this.difficulty);
-        let tableSize = highScoreTable.tableSize;
-        let table = highScoreTable.highScoreTable;
-        let timer = new Timer();
-        for (let row = 0; row < tableSize; row++) {
+    addFullHighScoreTable(fullResults) {
+        let fullHighScoreTableBody = document.getElementById('menu-full-highscore-body');
+        fullHighScoreTableBody.classList.remove('hidden');
+        fullResults.forEach((result, index) => {
             let tr = document.createElement('tr');
             let td = document.createElement('td');
-            td.innerText = (row + 1) + '';
+            td.innerText = (index + 1) + '';
             tr.appendChild(td);
-            let userFromTable = table[row];
-            Object.keys(userFromTable).forEach((value => {
-                    td = document.createElement('td');
-                    if (value === '_highscore') 
-                        userFromTable[value] = timer.convertToString(userFromTable[value]);
-                    td.innerText = userFromTable[value] + '';
-                    tr.appendChild(td);
-            }));
+            let tdTimer = document.createElement('td');
+            tdTimer.innerText = result.time;
+            tr.appendChild(tdTimer);
+            fullHighScoreTableBody.appendChild(tr);
+        });
+    }
+
+    addHighScoreTable() {
+        let highScoreTableBody = document.getElementById('highscore-table-body');        
+        current_results.forEach((result, index) => {
+            let tr = document.createElement('tr');
+            let td = document.createElement('td');
+            td.innerText = (index + 1) + '';
+            tr.appendChild(td);
+            let tdTimer = document.createElement('td');
+            tdTimer.innerText = result.time;
+            tr.appendChild(tdTimer);
             highScoreTableBody.appendChild(tr);
-        }
+        });
     }
 
     addCovers() {
@@ -337,9 +337,8 @@ class Game {
         fetch('http://localhost:3000/start')
         .then(res => res.json())
         .then (setting => {
-            console.log(setting);
             token = setting.token;
-            user_id = setting._id;
+            current_math_id = setting._id;
         })
         .catch(error => console.log(error))
     }
@@ -364,23 +363,22 @@ class Game {
     victory() {
         this.timer.stop();
         let time = this.timer.timeAsNum.toFixed(2);
-
+        
         fetch('http://localhost:3000/finish', {
             method: 'POST',  
             headers: {  
                 "Content-type": "application/json; charset=UTF-8"  
             },  
             body: JSON.stringify({
-                time: time,
+                time: time*1000,
                 token: token,
-                user_id: user_id
+                user_id: user_id,
+                match_id: current_math_id
             })
         })
         .then(res => {
-            if(res.statusText === 'OK') {
-                
-            }
-            else throw('error on page');
+            console.log('game has ended');
+            if(res.statusText === 'OK') console.log(res.status);
         })
         .catch(error => console.log(error))
 
