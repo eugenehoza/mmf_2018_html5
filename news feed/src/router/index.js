@@ -6,6 +6,7 @@ Vue.use(VueRouter);
 import Auth from '../components/Authorization'
 import Registration from '../components/Registration'
 import Feed from '../components/Feed'
+import NotFound from '../components/NotFound'
 
 const router = new VueRouter({
     mode: 'history',
@@ -21,9 +22,14 @@ const router = new VueRouter({
             component: Auth
         },
         {
-            path: '/feed',
+            path: '/',
             name: 'feed',
             component: Feed
+        },
+        {
+            path: '*',
+            name: 'not-found',
+            component: NotFound
         }
     ]
 });

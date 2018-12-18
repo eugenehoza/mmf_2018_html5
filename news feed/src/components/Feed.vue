@@ -14,15 +14,10 @@
 
                 <div class="friend_list">
                     <div class="friend-text">
-				<span class="menu_text">Friends</span>
+				        <span class="menu_text">Friends</span>
                     </div>
                     <div class="fr_menu">
-                        <div class="friend-name">
-                            <span class="nick">Alex123</span><button>REMOVE</button>
-                        </div>
-                        <div class="friend-name">
-                            <span class="nick">Ivan333</span><button>REMOVE</button>
-                        </div>
+                        <friend v-for="(friend, index) in friends" :name="friend" @removeFriend="removeFriend(index)"></friend>
                     </div>
                 </div>
                 <div class="umk_list">
@@ -30,9 +25,7 @@
                         <span class="menu_text">People you may know</span>
                     </div>
                     <div class="umk_menu">
-                        <div class="umk-name">
-                            <span class="nick">Andrey98</span><button>ADD</button>
-                        </div>
+                        <possible-friend v-for="(friend, index) in possibleFriends" :name="friend" @addFriend="addFriend(index)"></possible-friend>
                     </div>
                 </div>
 
@@ -45,7 +38,7 @@
                         <button>ADD POST</button>
                     </div>
                     <div>
-					<span>News</span>
+					    <span>News</span>
                     </div>
                     <div>
                         <button>REFRESH</button>
@@ -90,5 +83,38 @@
 </template>
 
 <script>
-    export default {}
+    import Friend from './elements/Friend.vue'
+    import PossibleFriend from './elements/PossibleFriend.vue'
+
+    export default {
+        components: {
+            Friend,
+            PossibleFriend
+        },
+        data () {
+            return {
+                friends: [
+                    'Alex123',
+                    'Ivan333',
+                    'VladYar',
+
+                ],
+                possibleFriends: [
+                    'Pustohod',
+                    'Afanas',
+                    'Peker'
+                ]
+            }
+        },
+        methods: {
+            removeFriend (index) {
+                this.possibleFriends.push(this.friends[index])
+                this.friends.splice(index, 1)
+            },
+            addFriend(index) {
+                this.friends.push(this.possibleFriends[index])
+                this.possibleFriends.splice(index, 1)
+            }
+        }
+    }
 </script>
