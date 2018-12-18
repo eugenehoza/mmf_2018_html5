@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>example</title>
+  </head>
+  <body>
+    <p>
+      Mongo links
+    </p>
+
+    <ul>
+      <li><a href="\test">Test connection</a></li>
+      <li><a href="\create">Create collection</a></li>
+      <li><a href="\insert">Insert Data</a></li>
+      <li><a href="\list">List items</a></li>
+    </ul>
+    <div class="derevishko">
+      <input type="text" placeholder="name of car" value='' id='name'>
+      <button type="button" id='find'>найті</button>
+      <div id="results">
+        <div></div>
+      </div>
+    </div>
+    <div class="">
+      <button id="copy" type="button" name="button"> dublicate </button>
+      <div id="text">
+
+      </div>
+    </div>
+    <script type="text/javascript">
+      let button = document.getElementById('find');
+      let results = document.getElementById('results');
+      let name = document.getElementById('name');
+
+      button.addEventListener('click',()=>{
+
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET',`derevishko/${name.value}`)
+        xhr.addEventListener('load',() => {
+          let data = JSON.parse(xhr.responseText);
+          data = data.reduce((g,e)=> {
+            return g+= `<h3>${e.name}</h3><p>${e.vin}</p>`
+          },'')
+          results.children[0].innerHTML = data;
+        })
+        xhr.send();
+      })
+    </script>
+    <script src="./static/darina.js" charset="utf-8"></script>
+    <div id="copied">
+      dyblirovat
+    </div>
+    <script src="./static/kovtun.js" charset="utf-8"></script>
+    <div>
+      <button type="button" id="delAll" name="deleteAll">delete all documents</button>
+    </div>
+    <script src="./static/vladaf.js" charset="utf-8"></script>
+  </body>
+</html>

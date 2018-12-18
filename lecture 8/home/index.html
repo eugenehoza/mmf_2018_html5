@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="./static/vue.min.js" charset="utf-8"></script>
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="/static/master.css">
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> -->
+    <title>express</title>
+  </head>
+  <body>
+    <div class="wrapper" id='app'>
+      <div class="head">
+        <h3>{{last}}</h3>
+      </div>
+      <div class="contener">
+        <div class="contener__list-block" @click='selectCurrentMethod'>
+          <ul><elem v-for='e in list' :name='e'></elem></ul>
+        </div>
+        <div class="contener__redact">
+          <textarea name="name" rows="8" cols="80" v-model="text"></textarea>
+          <button type="button" v-if='current' @click='save'>Сохранить</button>
+        </div>
+      </div>
+    </div>
+    <script src="/static/andrey.js" charset="utf-8"></script>
+  </body>
+</html>

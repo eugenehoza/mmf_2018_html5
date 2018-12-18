@@ -1,0 +1,26 @@
+post //готово
+/registration
+{login:'',password:''}
+'ok' / 'error'
+
+post //готово
+/login
+{login:'',password:''}
+{_id: 12312312321} || 'error'
+
+get //готово
+/start
+{"token":"16de89c9f1b8024a9b11df311ef823cd7a7d839c4263065101420416649c00bd","_id":"5c0ba8ad7ac6b124c0ed136e"}
+
+post //готово
+/finish
+{time:1544191797278,match_id:"5c0ba8ad7ac6b124c0ed136e",token: '16de89c9f1b8024a9b11df311ef823cd7a7d839c4263065101420416649c00bd',user_id:'5c0ba86a7ac6b124c0ed136d'}
+'ok' / 'error'
+
+get
+/records
+[{login:fdsads,time:123213},{},{},....] //LENGTH <= 100
+
+get
+/records/:login
+[{time:123213},{},{},....] //LENGTH <= 100
