@@ -17,8 +17,14 @@
   vertical-align: middle
   display: inline-block
 
-.log_out
-  margin:  10px
+.log_out, .add-post-btn, .refresh-btn
+  margin: 10px
+  border: none
+  padding: 8px 22px
+  background-color: #d8d8d8
+  border-radius: 12px
+  &:hover
+    background-color: darken(#d8d8d8, 5%)
 
 /*main*/
 .main
@@ -46,8 +52,11 @@
 .friend-text, .umk-text
   margin: 4px 4px 8px 4px
   text-align: center
+  border-bottom: 2px solid black
+  font-size: 20px
+  color: lighten(black, 15%)
 
-.fr_menu, .umk_menu
+.fr_menu, .umk_menu, .post
   padding: 5px
   background-color: #D7D8D9
   border: 1px solid black
@@ -61,7 +70,7 @@
   display:  flex
   justify-content:  space-between
   transition: all 0.4s
-  padding: 5px
+  padding: 6px 10px 6px 10px
   border-radius: 10px
   &:hover
     background-color: rgba(157,158,158, .6)
@@ -76,37 +85,51 @@
   width: 60%
 
 .news-text
-  display:  flex
-  justify-content:  space-between
   margin: 4px
+  display:  flex
+  font-size: 32px
+  align-items: center
+  color: lighten(black, 15%)
+  justify-content:  space-between
+  border-bottom: 2px solid black
+
 
 .news_menu
   margin: 4px
   height: 540px
   display:  flex
   flex-direction: column
+  overflow: hidden
+  overflow-y: auto
 
 .post
-  background-color: #D7D8D9
-  margin: 4px
+  height: unset
+  padding: 10px 20px
+  margin-bottom: 10px
+  transition: all 0.4s
+  overflow: unset
+  overflow-y: unset
+  margin-right: 10px
+  &:hover
+    background-color: darken(#D7D8D9, 5%)
 
-.top
+.post-header
   display:  flex
+  padding-bottom: 5px
+  border-bottom: 1px solid black
   justify-content:  space-between
-  padding-left: 10px
-  padding-right: 10px
 
-.bottom
-  padding: 10px
+.post-body
+  padding: 10px 0
 
 .add-button
   padding: 5px 25px
   color: white
   border-radius: 14px
   border: none
-  background-color: darkgreen
+  background-color: lighten(darkgreen, 10%)
   &:hover
-    background-color: lighten(darkgreen, 10%)
+    background-color: lighten(darkgreen, 5%)
 
 .remove-btn
   padding: 5px 25px
