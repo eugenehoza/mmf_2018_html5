@@ -1,0 +1,145 @@
+/*only_top*/
+.shapka
+  padding: 15px 300px
+  background-color: #707070
+  display:  flex
+  justify-content:  space-between
+  align-items: center
+
+.logo
+  color:  white
+  font-weight: bold
+  font-size: 300%
+
+.user_name
+  color:  white
+  font-size: 150%
+  vertical-align: middle
+  display: inline-block
+
+.log_out, .add-post-btn, .refresh-btn
+  margin: 10px
+  border: none
+  padding: 8px 22px
+  background-color: #d8d8d8
+  border-radius: 12px
+  &:hover
+    background-color: darken(#d8d8d8, 5%)
+
+/*main*/
+.main
+  display:  flex
+  justify-content:  space-between
+  margin-left: 20%
+  margin-right: 20%
+  background-color: rgba(157,158,158, .4)
+
+/*people*/
+.people
+  display:  flex
+  flex-direction: column
+  width: 40%
+
+.friend_list, .umk_list, .news
+  margin: 8px 24px
+  padding: 10px 16px
+  background-color: rgba(64,64,64, .3)
+  display:  flex
+  flex-direction: column
+  border-radius: 6px
+
+
+.friend-text, .umk-text
+  margin: 4px 4px 8px 4px
+  text-align: center
+  border-bottom: 2px solid black
+  font-size: 20px
+  color: lighten(black, 15%)
+
+.fr_menu, .umk_menu, .post
+  padding: 5px
+  background-color: #D7D8D9
+  border: 1px solid black
+  border-radius: 6px
+  height: 250px
+  overflow: hidden
+  overflow-y: auto
+
+.friend
+  margin: 3px
+  display:  flex
+  justify-content:  space-between
+  transition: all 0.4s
+  padding: 6px 10px 6px 10px
+  border-radius: 10px
+  &:hover
+    background-color: rgba(157,158,158, .6)
+
+.umk-name
+  margin: 3px
+  display:  flex
+  justify-content:  space-between
+
+/*news*/
+.news
+  width: 60%
+
+.news-text
+  margin: 4px
+  display:  flex
+  font-size: 32px
+  align-items: center
+  color: lighten(black, 15%)
+  justify-content:  space-between
+  border-bottom: 2px solid black
+
+
+.news_menu
+  margin: 4px
+  height: 540px
+  display:  flex
+  flex-direction: column
+  overflow: hidden
+  overflow-y: auto
+
+.post
+  height: unset
+  padding: 10px 20px
+  margin-bottom: 10px
+  transition: all 0.4s
+  overflow: unset
+  overflow-y: unset
+  margin-right: 10px
+  &:hover
+    background-color: darken(#D7D8D9, 5%)
+
+.post-header
+  display:  flex
+  padding-bottom: 5px
+  border-bottom: 1px solid black
+  justify-content:  space-between
+
+.post-body
+  padding: 10px 0
+
+.add-button
+  padding: 5px 25px
+  color: white
+  border-radius: 14px
+  border: none
+  background-color: lighten(darkgreen, 10%)
+  &:hover
+    background-color: lighten(darkgreen, 5%)
+
+.remove-btn
+  padding: 5px 25px
+  color: white
+  border-radius: 14px
+  border: none
+  background-color: darkred
+  &:hover
+    background-color: lighten(darkred, 10%)
+
+.nick
+  display: inline-block
+  vertical-align: middle

@@ -4,9 +4,7 @@
   </div>
 </template>
 
-<style src="./assets/feed_style.css"></style>
-<style src="./assets/login_style.css"></style>
-<style src="./assets/signup_style.css"></style>
+<style lang="sass" src="./assets/sass/main.sass"></style>
 
 <script>
   export default {
